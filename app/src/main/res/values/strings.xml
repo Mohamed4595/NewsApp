@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="favorites">Favorites</string>
+    <string name="search">Search</string>
+    <string name="seeMore">See More</string>
+    <string name="TheresNothingHere">There"'"s nothing here</string>
+
+</resources>

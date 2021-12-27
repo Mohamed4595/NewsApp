@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.mhmd.newsapp.framework.presentation.newsList.NewsListFragment"
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_newsListFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment" />
+        <action
+            android:id="@+id/action_newsListFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteListFragment"
+        android:name="com.mhmd.newsapp.framework.presentation.favoriteList.FavoriteListFragment"
+        android:label="FavoriteListFragment" >
+        <action
+            android:id="@+id/action_favoriteListFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.mhmd.newsapp.framework.presentation.newsDetails.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.mhmd.newsapp.framework.presentation.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+</navigation>
