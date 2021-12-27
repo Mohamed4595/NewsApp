@@ -2,10 +2,22 @@ package com.mhmd.newsapp.framework.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
@@ -44,7 +56,7 @@ fun NewsDetails(
                 Surface(
                     shape = RoundedCornerShape(bottomEnd = 10.dp, bottomStart = 10.dp),
 
-                ) {
+                    ) {
                     Image(
                         painter = rememberImagePainter(
                             data = url,
@@ -100,16 +112,37 @@ fun NewsDetails(
                         )
                     }
                 }
-                news.author?.let { author ->
-                    Text(
-                        text =
-                        "Updated ${DateUtils.dateToString(DateUtils.stringToDate(news.publishedAt!!))} by $author",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp),
-                        style = MaterialTheme.typography.caption.copy(color = MaterialTheme.colors.onBackground)
-                    )
+                Row(
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+
+                    news.publishedAt?.let { publishedAt ->
+                        Text(
+                            text =
+                            "${stringResource(R.string.updated)} ${
+                                DateUtils.dateToString(
+                                    DateUtils.stringToDate(
+                                        publishedAt
+                                    )
+                                )
+                            } ",
+                            modifier = Modifier
+                                .padding(vertical = 8.dp),
+                            style = MaterialTheme.typography.caption.copy(color = MaterialTheme.colors.onBackground)
+                        )
+                    }
+
+                    news.author?.let { author ->
+                        Text(
+                            text =
+                            "${stringResource(R.string.by)} $author",
+                            modifier = Modifier
+                                .padding(vertical = 8.dp),
+                            style = MaterialTheme.typography.caption.copy(color = MaterialTheme.colors.onBackground)
+                        )
+                    }
                 }
+
                 news.description?.let { description ->
                     if (description != "N/A") {
                         Text(

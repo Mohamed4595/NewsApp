@@ -4,5 +4,7 @@
     <string name="search">Search</string>
     <string name="seeMore">See More</string>
     <string name="TheresNothingHere">There"'"s nothing here</string>
+    <string name="updated">Updated</string>
+    <string name="by">By</string>
 
 </resources>
